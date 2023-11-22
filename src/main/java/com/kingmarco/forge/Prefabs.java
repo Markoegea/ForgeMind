@@ -11,10 +11,10 @@ public class Prefabs {
 
     //TODO: Your Code here
     public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY){
-        return null;
+        return MyPrefabs.generateSpriteObject(sprite,sizeX,sizeY);
     }
 
     public static GameObject generatePrefab(String file){
-        return null;
+        return MyPrefabs.generatePrefab(file);
     }
 }

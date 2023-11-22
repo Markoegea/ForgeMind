@@ -1,6 +1,5 @@
 package com.kingmarco.editor;
 
-import com.kingmarco.forge.ImGuiLayer;
 import com.kingmarco.forge.MouseListener;
 import com.kingmarco.forge.Window;
 import com.kingmarco.observers.EventSystem;
@@ -45,7 +44,7 @@ public class GameViewWindow {
 
         MouseListener.setGameViewportPos(new Vector2f(windowPos.x, windowPos.y));
         MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
-
+        MouseListener.setGameViewportDistance(new Vector2f(ImGui.getWindowPosX(), ImGui.getWindowPosY()));
         ImGui.end();
     }
 
@@ -57,14 +56,7 @@ public class GameViewWindow {
         ImVec2 windowSize = new ImVec2();
         ImGui.getContentRegionAvail(windowSize);
 
-        float aspectWidth = windowSize.x;
-        float aspectHeight = aspectWidth / Window.getTargetAspectRatio();
-        if (aspectHeight > windowSize.y){
-            // We must switch to pillarbox mode
-            aspectHeight = windowSize.y;
-            aspectWidth = aspectHeight * Window.getTargetAspectRatio();
-        }
-        return new ImVec2(aspectWidth, aspectHeight);
+        return new ImVec2(windowSize.x, windowSize.y);
     }
 
     private ImVec2 getCenteredPositionForViewport(ImVec2 aspectSize) {

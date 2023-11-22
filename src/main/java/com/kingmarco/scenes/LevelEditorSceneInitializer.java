@@ -32,7 +32,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         SpritesSheet gizmos = AssetPool.getSpriteSheet("assets/texture/gizmos.png");
         levelEditorStuff = scene.createGameObject("LevelEditor");
         levelEditorStuff.setNoSerialize();
-        levelEditorStuff.addComponent(new MouseControls());
+        levelEditorStuff.addComponent(new MouseControls(Window.getImGuiLayer().getPropertiesWindow()));
         levelEditorStuff.addComponent(new KeyControls());
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(scene.camera()));

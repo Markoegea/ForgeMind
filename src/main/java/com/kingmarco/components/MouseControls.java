@@ -28,8 +28,10 @@ public class MouseControls extends Component {
     private Vector2f boxSelectSart = new Vector2f();
     private Vector2f boxSelectEnd = new Vector2f();
     private DrawLines drawLines = new DrawLines(Integer.MAX_VALUE);
+    protected PropertiesWindow propertiesWindow;
 
-    public MouseControls() {
+    public MouseControls(PropertiesWindow propertiesWindow) {
+        this.propertiesWindow = propertiesWindow;
         DebugDraw.addDrawLines(drawLines);
     }
 
@@ -56,13 +58,11 @@ public class MouseControls extends Component {
         debounce -= dt;
         PickingTexture pickingTexture = Window.getImGuiLayer().getPropertiesWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
-
         if (holdingObject != null){
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
             holdingObject.transform.position.x = ((int)Math.floor(x / Settings.GRID_WIDTH) * Settings.GRID_WIDTH) + Settings.GRID_WIDTH / 2.0f;
             holdingObject.transform.position.y = ((int)Math.floor(y / Settings.GRID_HEIGHT) * Settings.GRID_HEIGHT) + Settings.GRID_HEIGHT / 2.0f;
-
             if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)){
                 float halfWidth = Settings.GRID_WIDTH / 2.0f;
                 float halfHeight = Settings.GRID_HEIGHT / 2.0f;
@@ -90,7 +90,8 @@ public class MouseControls extends Component {
             } else if (!MouseListener.isDragging()){
                 Window.getImGuiLayer().getPropertiesWindow().clearSelected();
             }
-        } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && holdingObject == null){
+        } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)
+                && holdingObject == null && propertiesWindow.getActiveGameObject() == null){
             if (!boxSelectSet){
                 Window.getImGuiLayer().getPropertiesWindow().clearSelected();
                 boxSelectSart = MouseListener.getScreen();

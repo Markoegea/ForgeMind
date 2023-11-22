@@ -30,8 +30,9 @@ public class TranslateGizmo extends Gizmo{
 
         if (activeGameObject != null) {
             if (hover && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
-                activeGameObject.transform.position.x -= MouseListener.getWorldX();
-                activeGameObject.transform.position.y -= MouseListener.getWorldY();
+                Vector2f delta = MouseListener.screenToWorld(MouseListener.getScreenD());
+                activeGameObject.transform.position.x -= delta.x;
+                activeGameObject.transform.position.y -= -delta.y;
             }
             drawLine(activeGameObject.transform.position, activeGameObject.transform.scale);
         }
@@ -51,16 +52,13 @@ public class TranslateGizmo extends Gizmo{
 
     private boolean checkHoverState() {
         if (this.activeGameObject == null) return false;
-        Vector2f mousePos = new Vector2f(MouseListener.getScreenX(), MouseListener.getScreenY());
+        Vector2f mousePos = MouseListener.getWorld();
         Vector2f gameObjectPosition = this.activeGameObject.transform.position;
         Vector2f gameObjectScale = this.activeGameObject.transform.scale;
-        if (mousePos.x >= gameObjectPosition.x - gameObjectScale.x &&
+        return mousePos.x >= (gameObjectPosition.x - gameObjectScale.x) &&
                 mousePos.x <= (gameObjectPosition.x + gameObjectScale.x) &&
                 mousePos.y >= (gameObjectPosition.y - gameObjectScale.y) &&
-                mousePos.y <= (gameObjectPosition.y + gameObjectScale.y)){
-            return true;
-        }
-        return false;
+                mousePos.y <= (gameObjectPosition.y + gameObjectScale.y);
     }
 
     @Override
