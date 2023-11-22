@@ -2,21 +2,20 @@ package com.kingmarco.scenes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.kingmarco.components.SpriteRenderer;
+import com.kingmarco.components.Component;
 import com.kingmarco.components.Transform;
 import com.kingmarco.deserializers.ComponentDeserializer;
 import com.kingmarco.deserializers.GameObjectDeserializer;
 import com.kingmarco.forge.Camera;
-import com.kingmarco.components.Component;
 import com.kingmarco.forge.GameObject;
 import com.kingmarco.physics2d.Physics2D;
 import com.kingmarco.renderer.Renderer;
-import imgui.ImGui;
 import org.joml.Vector2f;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,7 @@ public class Scene {
     private List<GameObject> pendingObject;
     private Physics2D physics2D;
     private SceneInitializer sceneInitializer;
+    private String savePath = "src/main/saves/level.txt";
     private final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
@@ -206,8 +206,17 @@ public class Scene {
     }
 
     public void save() {
+        Path path = Paths.get(savePath);
+        Path parentDir = path.getParent();
+        if (parentDir != null && !Files.exists(parentDir)){
+            try {
+                Files.createDirectories(parentDir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try {
-            FileWriter writer = new FileWriter("level.txt");
+            FileWriter writer = new FileWriter(savePath);
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
                 if (obj.doSerialization()){
@@ -224,9 +233,9 @@ public class Scene {
     public void load() {
         String inFile = "";
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get(savePath)));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Save file not found!");
         }
         if (!inFile.isEmpty()){
             int maxGoId = -1;
