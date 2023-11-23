@@ -1,4 +1,4 @@
-# Project Title
+# NeonForge
 
 A 2D game engine made in Java, using the LWJGL (Lightweight Java Game Library).
 
@@ -42,9 +42,9 @@ In the project, we have 9 important folders, in the src/main/java/com/kingmarco 
 4. The fourth is "forge", contains the core of the game engine, all the necessary classes to make the engine works.
 5. The fifth is "observers", contains a implementation of the observers pattern to notify the engine when a specific event happens.
 6. The sixth is "physics2d", have the classes that give the game objects the physics, colliders and raycasts.
-7. The seventh is "renderer", contains the classes that are the responsable of render the graphics, lines and textures.
+7. The seventh is "renderer", contains the classes that are the responsable for render the graphics, lines and textures.
 8. The eighth is "scenes", that have the scenes classes, indicate what have to be seen and show, the editor scene and then, the game scene.
-9. The nineth is "util", have two helping classes that, load the sprites, shaders, texture and sounds from the system, and indicate the size of the grid.
+9. The ninth is "util", have two helping classes that, load the sprites, shaders, texture and sounds from the system, and indicate the size of the grid.
 
 ## Features
 
@@ -63,11 +63,11 @@ COMING SOON!
 
 ## Credits
 
-- https://github.com/jbox2d/jbox2d - The library responsable of calculate the physics in the engine.
+- https://github.com/jbox2d/jbox2d - The library responsable for calculate the physics in the engine.
 - https://youtu.be/025QFeZfeyM?si=vsTN189_NiZNzyTH - freeCodeCamp.org video that show me how to build a 2D game engine.
 - https://www.lwjgl.org/ - Page of the Lightweight Java Game Library that contains all the libraries necesary to run the engine.
-- https://github.com/google/gson - The Github project responsable of the Gson library.
-- https://github.com/ocornut/imgui - The Github project responsable of the UI of the engine.
+- https://github.com/google/gson - The Github project responsable for the Gson library.
+- https://github.com/ocornut/imgui - The Github project responsable for the UI of the engine.
 
 ## License
 
@@ -80,7 +80,7 @@ Instagram: https://www.instagram.com/titancloudofficial/
 
 ## FAQs
 
-Make your question and the will be posted here.
+Make your question and they will be posted here.
 
 ## Examples/Demo
 
