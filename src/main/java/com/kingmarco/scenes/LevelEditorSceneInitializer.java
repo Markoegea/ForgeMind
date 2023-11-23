@@ -6,7 +6,6 @@ import com.kingmarco.forge.*;
 import com.kingmarco.physics2d.components.Box2DCollider;
 import com.kingmarco.physics2d.components.RigidBody2D;
 import com.kingmarco.physics2d.enums.BodyType;
-import com.kingmarco.renderer.Renderer;
 import com.kingmarco.util.AssetPool;
 import com.kingmarco.util.Settings;
 import imgui.ImGui;

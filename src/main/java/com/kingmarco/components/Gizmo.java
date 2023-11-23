@@ -2,7 +2,7 @@ package com.kingmarco.components;
 
 import com.kingmarco.editor.PropertiesWindow;
 import com.kingmarco.forge.*;
-import com.kingmarco.renderer.DebugDraw;
+import com.kingmarco.scenes.Prefabs;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 

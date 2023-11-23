@@ -1,11 +1,7 @@
-package com.kingmarco.forge;
+package com.kingmarco.scenes;
 
-import com.kingmarco.GameFunctionality.PlayerController;
 import com.kingmarco.components.*;
-import com.kingmarco.physics2d.components.RigidBody2D;
-import com.kingmarco.physics2d.enums.BodyType;
-import com.kingmarco.util.AssetPool;
-import org.joml.Vector2f;
+import com.kingmarco.forge.GameObject;
 
 public class Prefabs {
 

@@ -43,5 +43,5 @@ bin/
 
 ### Personal Files ##
 src/main/java/com/kingmarco/GameFunctionality
-src/main/java/com/kingmarco/forge/MyPrefabs.java
+src/main/java/com/kingmarco/scenes/MyPrefabs.java
 src/main/saves

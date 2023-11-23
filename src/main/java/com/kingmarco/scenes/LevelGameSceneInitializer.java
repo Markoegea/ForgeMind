@@ -1,21 +1,8 @@
 package com.kingmarco.scenes;
 
-import com.kingmarco.GameFunctionality.BreakableBrick;
 import com.kingmarco.components.*;
 import com.kingmarco.forge.GameObject;
-import com.kingmarco.forge.Prefabs;
-import com.kingmarco.forge.Sound;
-import com.kingmarco.physics2d.components.Box2DCollider;
-import com.kingmarco.physics2d.components.RigidBody2D;
-import com.kingmarco.physics2d.enums.BodyType;
 import com.kingmarco.util.AssetPool;
-import com.kingmarco.util.Settings;
-import imgui.ImGui;
-import imgui.ImVec2;
-import org.joml.Vector2f;
-
-import java.io.File;
-import java.util.Collection;
 
 public class LevelGameSceneInitializer extends SceneInitializer {
     private GameObject levelGameStuff;
