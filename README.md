@@ -1,4 +1,4 @@
-# NeonForge
+# ForgeMind
 
 A 2D game engine made in Java, using the LWJGL (Lightweight Java Game Library).
 
