@@ -159,7 +159,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                         Box2DCollider b2b = new Box2DCollider();
                         b2b.setHalfSize(new Vector2f(0.25f, 0.25f));
                         object.addComponent(b2b);
-                        object.addComponent(new BreakableBrick());
+                        //object.addComponent(new BreakableBrick());
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                     }
                     ImGui.popID();

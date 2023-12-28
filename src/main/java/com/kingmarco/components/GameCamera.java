@@ -31,7 +31,10 @@ public class GameCamera extends Component{
 
     @Override
     public void update(float dt) {
-        if (player != null && !player.getComponent(PlayerController.class).hasWon()){
+        if (player == null){
+            return;
+        }
+        if (!player.getComponent(PlayerController.class).hasWon()){
             gameCamera.position.x = player.transform.position.x - 3f;
             highestX = Math.max(highestX, gameCamera.position.x);
         }
